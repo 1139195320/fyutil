@@ -1,4 +1,4 @@
-package com.fy.function_study;
+package com.fy.fyutil;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
