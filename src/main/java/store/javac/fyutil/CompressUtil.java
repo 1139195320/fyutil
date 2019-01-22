@@ -83,7 +83,7 @@ public class CompressUtil {
 			while (entries.hasMoreElements()) {
 				ZipEntry entry = (ZipEntry) entries.nextElement();
 				if (isLog) {
-					System.out.println("解压" + entry.getName() + "...");
+					System.out.println("正在解压" + entry.getName() + "...");
 				}
 				/* 如果是文件夹，就创建个文件夹 */
 				if (entry.isDirectory()) {
@@ -388,6 +388,8 @@ public class CompressUtil {
 		if (!untarDirFile.exists()) {
 			throw new FileNotFoundException(untarFilePath + "解压后文件的路径不存在！");
 		}
+		
+		long startTime = System.currentTimeMillis();
 
 		List<String> fileList = new ArrayList<String>();
 
@@ -409,7 +411,7 @@ public class CompressUtil {
 			tais = new TarArchiveInputStream(gis);
 
 			while ((tae = tais.getNextTarEntry()) != null) {
-				thisFileName = untarDirFile.getAbsolutePath() + tae.getName();
+				thisFileName = untarDirFile.getAbsolutePath() + FILE_PATH_SEPARATOR + tae.getName();
 				thisFile = new File(thisFileName);
 				if (isLog) {
 					System.out.println("正在解压" + thisFileName + "...");
@@ -439,6 +441,11 @@ public class CompressUtil {
 					}
 				} else {
 					fileList.add(thisFileName);
+					/* 保证这个文件的父文件夹必须要存在 */
+					if (!thisFile.getParentFile().exists()) {
+						thisFile.getParentFile().mkdirs();
+					}
+					thisFile.createNewFile();
 					os = new FileOutputStream(thisFile);
 					try {
 						byte[] buf = new byte[BYTE_1024];
@@ -454,6 +461,10 @@ public class CompressUtil {
 						}
 					}
 				}
+			}
+			long endTime = System.currentTimeMillis();
+			if (isLog) {
+				System.out.println("解压完成，消耗时长：" + (endTime - startTime) + "ms");
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("解压失败：" + e.getMessage());
@@ -516,6 +527,7 @@ public class CompressUtil {
 		if (!tarDirFile.exists()) {
 			throw new FileNotFoundException(tarFileDir + "路径不存在！");
 		}
+		long startTime = System.currentTimeMillis();
 		/* 生成的tar归档文件的路径 */
 		String tarFilePath = tarDirFile.getAbsolutePath() + FILE_PATH_SEPARATOR + tarFileName + ".tar";
 		/* 生成的gz压缩文件的路径 */
@@ -587,6 +599,10 @@ public class CompressUtil {
 			} catch (IOException e) {
 			}
 		}
+		long endTime = System.currentTimeMillis();
+		if (isLog) {
+			System.out.println("压缩完成，消耗时长：" + (endTime - startTime) + "ms");
+		}
 		return gzFilePath;
 	}
 
@@ -623,6 +639,7 @@ public class CompressUtil {
 		if (!tarDirFile.exists()) {
 			throw new RuntimeException(tarFileDir + "路径不存在！");
 		}
+		long startTime = System.currentTimeMillis();
 		/* 生成的tar归档文件的路径 */
 		String tarFilePath = tarDirFile.getAbsolutePath() + FILE_PATH_SEPARATOR + tarFileName + ".tar";
 		/* 生成的gz压缩文件的路径 */
@@ -678,6 +695,10 @@ public class CompressUtil {
 			}
 			/* 删除中间tar归档文件 */
 			new File(tarFilePath).deleteOnExit();
+			long endTime = System.currentTimeMillis();
+			if (isLog) {
+				System.out.println("压缩完成，耗时：" + (endTime - startTime) + "ms");
+			}
 		} catch (IOException e) {
 			throw new RuntimeException("压缩失败！" + e.getMessage());
 		} finally {
