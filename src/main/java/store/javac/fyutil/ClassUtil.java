@@ -20,7 +20,7 @@ public class ClassUtil {
 	 * @Description <p>通过反射执行对象的类的方法</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:11:40</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param classPath 类名，完整类路径
 	 * @param methodName 方法名
@@ -47,7 +47,7 @@ public class ClassUtil {
 	 * @Description <p>实例化一个类</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:10:26</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param beanClass 要实例化的类
 	 * @return 该类的实例化对象
@@ -81,7 +81,7 @@ public class ClassUtil {
 	 * @Description <p>获得一个类中所有构造列表</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:07:31</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param beanClass 类 <T> 构造的对象类型
 	 * @return 构造函数列表
@@ -100,7 +100,7 @@ public class ClassUtil {
 	 * @Description <p>判断一个方法是否是静态方法</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:06:48</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param method
 	 * @return
@@ -114,7 +114,7 @@ public class ClassUtil {
 	 * @Description <p>通过反射执行对象的类的方法</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:11:53</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param classInstance 该类的一个实例对象
 	 * @param methodName 方法名
@@ -158,7 +158,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的方法信息</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:17:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param classPath 类路径（全路径）
 	 * @return Map<方法名 , Map<（"paramType" : List<Object> 参数类型集合 ， "returnType" :
@@ -176,7 +176,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的方法信息</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:17:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param obj 该类的一个实例对象
 	 * @return Map<方法名 , Map<（"paramType" : List<Object> 参数类型集合 ， "returnType" :
@@ -194,7 +194,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的方法信息</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 下午3:51:04</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param thisClass 类
 	 * @return Map<方法名 , Map<（"paramType" : List<Object> 参数类型集合 ， "returnType" :
@@ -228,7 +228,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类实体对象的信息</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:18:15</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param obj 该实体类的一个实例对象
 	 * @return Map<（"class" : 该实体的类全路径,"hashcode" : 该实体的hashcode）>
@@ -247,7 +247,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的属性信息及默认属性值</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:18:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param thisClass 类
 	 * @return Map<属性名, 属性默认值>
@@ -264,7 +264,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的属性信息及默认属性值</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:18:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param classPath 类名，完整类路径
 	 * @return Map<属性名, 属性默认值>
@@ -289,7 +289,7 @@ public class ClassUtil {
 	 * @Description <p>获取一个类的属性信息及默认属性值</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:18:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param obj 该实体类的一个实例对象
 	 * @return Map<属性名, 属性默认值>
@@ -337,7 +337,7 @@ public class ClassUtil {
 	 * </p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:19:06</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param clazz 类 
 	 * @return  默认值
@@ -371,7 +371,7 @@ public class ClassUtil {
 	 * @Description <p>获得默认值列表</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月25日 上午11:20:16</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param classes 值类型
 	 * @return 默认值列表

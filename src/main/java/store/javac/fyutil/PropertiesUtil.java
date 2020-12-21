@@ -27,7 +27,7 @@ public class PropertiesUtil {
 	 * @Description <p>通过配置文件中配置的key获取value</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:52:27</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 配置文件路径
 	 * @param key 配置信息的键
@@ -40,8 +40,7 @@ public class PropertiesUtil {
 			is = new FileInputStream(file);
 			isr = new InputStreamReader(is, CHARSET_UTF8);
 			pps.load(isr);
-			String value = pps.getProperty(key);
-			return value;
+			return pps.getProperty(key);
 		} catch (IOException e) {
 			return null;
 		} finally {
@@ -54,7 +53,7 @@ public class PropertiesUtil {
 	 * @Description <p>将配置信息写入properties配置文件</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:52:08</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 配置文件路径
 	 * @param data 写入数据信息的集合
@@ -74,14 +73,14 @@ public class PropertiesUtil {
 			if(null == data) {
 				throw new NullPointerException("写入数据不能为null");
 			}
-			String strChange = "";
+			StringBuilder strChange = new StringBuilder();
 			for(Map.Entry<String, String> entry : data.entrySet()) {
 				pps.setProperty(entry.getKey() , entry.getValue());
-				strChange += entry.getKey() + "/";
+				strChange.append(entry.getKey()).append("/");
 			}
 			// 以适合使用 load 方法加载到 Properties 表中的格式，
 			// 将此 Properties 表中的属性列表（键和元素对）写入输出流
-			if(!"".equals(strChange.trim())) {
+			if(!"".equals(strChange.toString().trim())) {
 				pps.store(osw, "Update " + strChange.substring(0, strChange.length() - 1) + " data");
 			}
 		} catch (IOException e) {
@@ -96,7 +95,7 @@ public class PropertiesUtil {
 	 * @Description <p>将配置信息写入properties配置文件</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:51:49</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 配置文件路径
 	 * @param key
@@ -127,14 +126,18 @@ public class PropertiesUtil {
 	
 	private static void closed() {
 		try {
-			if (null != osw)
+			if (null != osw) {
 				osw.close();
-			if (null != os)
+			}
+			if (null != os) {
 				os.close();
-			if (null != isr)
+			}
+			if (null != isr) {
 				isr.close();
-			if (null != is)
+			}
+			if (null != is) {
 				is.close();
+			}
 		} catch (IOException e) {
 			osw = null;
 			os = null;
@@ -172,7 +175,7 @@ public class PropertiesUtil {
 	 * @Description <p>通过配置文件的地址获取配置文件信息</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:51:13</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 配置文件的地址
 	 * @return

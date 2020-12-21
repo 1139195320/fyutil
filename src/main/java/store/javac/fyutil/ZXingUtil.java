@@ -103,7 +103,7 @@ public class ZXingUtil {
 	 * @Description <p>解析二维码图片</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月3日 下午3:59:20</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param qrCodeFilePath 二维码图片路径
 	 * @return 含有二维码图片内容信息的集合（content，encode...）
@@ -145,7 +145,7 @@ public class ZXingUtil {
 	 * @Description <p>生成二维码图片</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月3日 下午3:57:40</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param logoFilePath logo图片文件的路径（可选）
 	 * @param codeFile 生成的二维码图片文件
@@ -174,7 +174,7 @@ public class ZXingUtil {
 	 * @Description <p>生成二维码图片</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月3日 下午3:57:40</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param logoFilePath logo图片文件的路径（可选）
 	 * @param codeFilePath 生成的二维码图片路径

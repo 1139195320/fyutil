@@ -10,7 +10,7 @@ public class MathUtil {
 	 * @Description <p>返回两个数乘积的结果，该两数可以很大</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:48:59</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param num1 数1字符串（整数）
 	 * @param num2 数2字符串（整数）

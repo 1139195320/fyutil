@@ -39,7 +39,7 @@ public class HttpClientUtil {
 	 * @Description <p>get网络请求</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月3日 下午3:27:55</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param url 请求地址
 	 * @return 请求返回结果
@@ -78,7 +78,7 @@ public class HttpClientUtil {
 	 * @Description <p>post网络请求</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月3日 下午2:39:04</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param url 请求的地址
 	 * @param params 请求的参数，null即为get请求

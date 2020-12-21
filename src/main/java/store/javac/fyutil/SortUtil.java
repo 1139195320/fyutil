@@ -68,7 +68,7 @@ public class SortUtil {
 	 * @Description <p>排序字符串</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月28日 上午9:11:46</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param str 要排序字符的字符串
 	 * @param isAsc 是否顺序（从小到大）
@@ -83,7 +83,7 @@ public class SortUtil {
 	 * @Description <p>排序字符数组</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月28日 上午9:11:46</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param arr 字符数组
 	 * @param isAsc 是否顺序（从小到大）
@@ -117,7 +117,7 @@ public class SortUtil {
 	 * @Description <p>选择排序</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月27日 上午11:58:14</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param arr 要排序的数组
 	 * @param isAsc 是否顺序排序（从低到高）
@@ -148,7 +148,7 @@ public class SortUtil {
 	 * @Description <p>冒泡排序</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月27日 上午11:58:31</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param arr 要排序的数组
 	 * @param isAsc 是否顺序排序（从低到高）
@@ -173,7 +173,7 @@ public class SortUtil {
 	 * @Description <p>二分法排序（即插入排序）</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月27日 上午11:45:24</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param arr 要排序的数组
 	 * @param isAsc 是否顺序排序（从低到高）
@@ -207,7 +207,7 @@ public class SortUtil {
 	 * @Description <p>交换两个数</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年6月27日 下午3:36:05</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param a
 	 * @param b

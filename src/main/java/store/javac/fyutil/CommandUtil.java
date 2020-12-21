@@ -11,7 +11,7 @@ import java.util.List;
  * @Description <p>命令执行操作工具类</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:56:45</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class CommandUtil {

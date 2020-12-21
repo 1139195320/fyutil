@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
  * @Description <p>图形验证码的操作工具类</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:54:42</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class CheckCodeUtil {

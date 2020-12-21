@@ -11,6 +11,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 
+/**
+ * @author jack
+ */
 public class FileUtil {
 	
 	private static final String CHARSET_UTF8 = "UTF-8";
@@ -29,15 +32,14 @@ public class FileUtil {
 	private static BufferedWriter bw = null;
 	
 	/**
-	 * 
 	 * @Description <p>获取文件或文件夹大小</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:25:48</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param path 文件或文件夹路径（绝对路径）
-	 * @param sizeCompany
-	 * @return
+	 * @param sizeCompany 容量单位
+	 * @return 文件大小
 	 */
 	public static Double getFileSize(String path, Integer sizeCompany) {
 		if(null == path || "".equals(path.trim())
@@ -50,13 +52,13 @@ public class FileUtil {
 		}
 		Double size = doGetFileSize(path);
 
-		if (SIZE_TYPE_KB == sizeCompany) {
+		if (SIZE_TYPE_KB.equals(sizeCompany)) {
 			return Double.valueOf(new DecimalFormat("0.0").format(size / 1024));
-		} else if (SIZE_TYPE_MB == sizeCompany) {
+		} else if (SIZE_TYPE_MB.equals(sizeCompany)) {
 			return Double.valueOf(new DecimalFormat("0.0").format(size / 1024 / 1024));
-		} else if (SIZE_TYPE_GB == sizeCompany) {
+		} else if (SIZE_TYPE_GB.equals(sizeCompany)) {
 			return Double.valueOf(new DecimalFormat("0.0").format(size / 1024 / 1024 / 1024));
-		} else if (SIZE_TYPE_TB == sizeCompany) {
+		} else if (SIZE_TYPE_TB.equals(sizeCompany)) {
 			return Double.valueOf(new DecimalFormat("0.0").format(size / 1024 / 1024 / 1024 / 1024));
 		} else {
 			return Double.valueOf(new DecimalFormat("0.0").format(size));
@@ -71,7 +73,7 @@ public class FileUtil {
 		}
 		if (file.isDirectory()) {
 			File[] files = file.listFiles();
-			if (files.length == 0) {
+			if (files == null || files.length == 0) {
 				return 0.0;
 			}
 			for (File thisFile : files) {
@@ -90,7 +92,7 @@ public class FileUtil {
 	 * @Description <p>从指定文件夹复制文件或目录至另一个指定文件夹</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:37:04</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param fromDir 指定源文件夹（绝对路径）
 	 * @param toDir 另一个指定文件夹（绝对路径）
@@ -191,7 +193,7 @@ public class FileUtil {
 	 * @Description <p>删除文件夹（用了递归完整删除文件夹及里面的内容）</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:16:41</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param dir 文件夹路径（绝对路径）
 	 * @param dirName 文件夹名
@@ -206,27 +208,33 @@ public class FileUtil {
 		File file = new File(dirPath);
 		if (file.exists() && file.isDirectory()) {
 			 /*删除子文件及子目录*/
-			File files[] = file.listFiles();
-			for (File f : files) {
-				if (f.isFile() && f.delete()) {
-					if (isLogDelete)
-						System.out.println("文件" + f.getName() + "删除成功！");
-					continue;
-				}
-				if (f.isDirectory()) {
-					deleteDir(dirPath + FILE_SEPARATOR, f.getName(), isLogDelete);
+			File[] files = file.listFiles();
+			if (files != null) {
+				for (File f : files) {
+					if (f.isFile() && f.delete()) {
+						if (isLogDelete) {
+							System.out.println("文件" + f.getName() + "删除成功！");
+						}
+						continue;
+					}
+					if (f.isDirectory()) {
+						deleteDir(dirPath + FILE_SEPARATOR, f.getName(), isLogDelete);
+					}
 				}
 			}
 			if (file.delete()) {
-				if (isLogDelete)
+				if (isLogDelete) {
 					System.out.println(dirPath + "文件夹删除成功！");
+				}
 			} else {
-				if (isLogDelete)
+				if (isLogDelete) {
 					System.out.println(dirPath + "文件夹删除失败！");
+				}
 			}
 		} else {
-			if (isLogDelete)
+			if (isLogDelete) {
 				System.out.println(dir + "下的" + dirName + "文件夹不存在！");
+			}
 		}
 	}
 	
@@ -235,7 +243,7 @@ public class FileUtil {
 	 * @Description <p>删除文件</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:14:47</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param dir 文件路径（绝对路径）
 	 * @param fileName 文件名
@@ -250,11 +258,7 @@ public class FileUtil {
 		File file = new File(filePath);
 		if (file.exists() && file.isFile()) {
 			try {
-				if (file.delete()) {
-					return true;
-				} else {
-					return false;
-				}
+				return file.delete();
 			} catch (Exception e) {
 				throw new RuntimeException("文件删除失败！" + e.getMessage());
 			}
@@ -268,7 +272,7 @@ public class FileUtil {
 	 * @Description <p>向文件写入内容</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:12:43</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param dir 文件绝对路径所在目录
 	 * @param fileName 文件名
@@ -320,7 +324,7 @@ public class FileUtil {
 	 * @Description <p>创建目录</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:04:02</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param dir 文件夹绝对路径所在父目录
 	 * @param dirName 文件夹名
@@ -337,11 +341,7 @@ public class FileUtil {
 			throw new RuntimeException(dir + "下的" + dirName + "已有重名文件或文件夹存在！");
 		}
 		try {
-			if (file.getAbsoluteFile().mkdirs()) {
-				return true;
-			} else {
-				return false;
-			}
+			return file.getAbsoluteFile().mkdirs();
 		} catch (Exception e) {
 			throw new RuntimeException("目录创建失败！" + e.getMessage());
 		}
@@ -352,7 +352,7 @@ public class FileUtil {
 	 * @Description <p>创建单个文件</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:02:59</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param dir 文件绝对路径目录
 	 * @param fileName 文件名
@@ -378,11 +378,7 @@ public class FileUtil {
 			throw new RuntimeException("目标文件不能为目录！");
 		}
 		try {
-			if (file.createNewFile()) {
-				return true;
-			} else {
-				return false;
-			}
+			return file.createNewFile();
 		} catch (IOException e) {
 			throw new RuntimeException("文件创建失败！" + e.getMessage());
 		}
@@ -393,7 +389,7 @@ public class FileUtil {
 	 * @Description <p>（无中文乱码） 读取文件内容（BufferedReader缓冲字符流）之 read</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午11:00:13</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 文件绝对路径
 	 * @return 读取到的内容
@@ -404,7 +400,7 @@ public class FileUtil {
 			throw new IllegalArgumentException("参数有误！");
 		}
 		File file = new File(filePath);
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		if(file.exists()) {
 			if(!file.isFile()) {
 				throw new RuntimeException(filePath + "路径不是一个文件！");
@@ -418,14 +414,14 @@ public class FileUtil {
 			br = new BufferedReader(isr);
 			int chr;
 			while ((chr = br.read()) != -1) {
-				result += (char) chr;
+				result.append((char) chr);
 			}
 		} catch (IOException e) {
 			throw new RuntimeException("读取失败：" + e.getMessage());
 		} finally {
 			closed();
 		}
-		return result;
+		return result.toString();
 	}
 	
 	/**
@@ -433,7 +429,7 @@ public class FileUtil {
 	 * @Description <p>（无中文乱码） 读取文件内容（BufferedReader缓冲字符流）之 readLine</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 上午10:59:19</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param filePath 文件绝对路径
 	 * @return 读取到的内容
@@ -451,7 +447,7 @@ public class FileUtil {
 		}else {
 			throw new FileNotFoundException(filePath + "路径未找到！");
 		}
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		try {
 			fis = new FileInputStream(file);
 			isr = new InputStreamReader(fis, CHARSET_UTF8);
@@ -459,30 +455,36 @@ public class FileUtil {
 			String line = "";
 			while ((line = br.readLine()) != null) {
 				 /*默认每次取一行，没有换行加上*/
-				result += line + "\n";
+				result.append(line).append("\n");
 			}
 		} catch (IOException e) {
 			throw new RuntimeException("读取失败：" + e.getMessage());
 		} finally {
 			closed();
 		}
-		return result;
+		return result.toString();
 	}
 
 	private static void closed() {
 		try {
-			if(bw != null)
+			if(bw != null) {
 				bw.close();
-			if (osw != null)
+			}
+			if (osw != null) {
 				osw.close();
-			if (fos != null)
+			}
+			if (fos != null) {
 				fos.close();
-			if (br != null)
+			}
+			if (br != null) {
 				br.close();
-			if (isr != null)
+			}
+			if (isr != null) {
 				isr.close();
-			if (fis != null)
+			}
+			if (fis != null) {
 				fis.close();
+			}
 		} catch (IOException e) {
 			bw = null;
 			osw = null;

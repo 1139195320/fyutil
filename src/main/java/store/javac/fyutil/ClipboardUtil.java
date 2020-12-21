@@ -14,7 +14,7 @@ import java.io.IOException;
  * @Description <p>剪贴板操作工具类</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:55:13</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class ClipboardUtil {
@@ -24,7 +24,7 @@ public class ClipboardUtil {
 	 * @Description <p>获取系统剪切板内容[剪切板中内容为图片型]</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:55:36</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @return
 	 */
@@ -46,7 +46,7 @@ public class ClipboardUtil {
 	 * @Description <p>设置系统剪切板内容[内容为图片型]</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:55:46</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param image
 	 */
@@ -78,7 +78,7 @@ public class ClipboardUtil {
 	 * @Description <p>设置系统剪切板内容[内容为文本型]</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:56:02</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @param content
 	 */
@@ -94,7 +94,7 @@ public class ClipboardUtil {
 	 * @Description <p>获取系统剪切板内容[剪切板中内容为文本型]</p>
 	 * @version <p>v1.0</p>
 	 * @Date <p>2018年7月4日 下午2:56:15</p> 
-	 * @author <p>fangyang</p>
+	 * @author <p>jack</p>
 	 *
 	 * @return
 	 */

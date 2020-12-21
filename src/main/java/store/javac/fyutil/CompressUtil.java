@@ -28,7 +28,7 @@ import org.apache.tools.zip.ZipOutputStream;
  * @Description <p>压缩和解压缩的工具包</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:57:09</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class CompressUtil {

@@ -44,7 +44,7 @@ public class XMLJDOMUtil {
 	 * @version v1.0
 	 * @Date 2018年6月9日 下午2:14:26
 	 *
-	 * @author fangyang
+	 * @author jack
 	 */
 	public static class XMLDocNode {
 		private String nodeName;

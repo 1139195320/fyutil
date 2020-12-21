@@ -36,7 +36,7 @@ import com.alibaba.fastjson.JSONArray;
  * @Description <p>使用POI实现的excel操作类</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:59:53</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class ExcelPOIUtil {
@@ -150,7 +150,7 @@ public class ExcelPOIUtil {
 	 * @version v1.0
 	 * @Date 2018年6月6日 下午10:11:17
 	 *
-	 * @author fangyang
+	 * @author jack
 	 */
 	public static class CellStyler {
 		/**

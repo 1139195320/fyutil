@@ -28,7 +28,7 @@ import jxl.write.WritableWorkbook;
  * @Description <p>使用JXL实现的excel操作类</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 下午2:57:28</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class ExcelJXLUtil {
@@ -105,7 +105,7 @@ public class ExcelJXLUtil {
 	 * @version v1.0
 	 * @Date 2018年6月7日 下午11:24:55
 	 *
-	 * @author fangyang
+	 * @author jack
 	 */
 	public static class OneUpdateExcelPojo {
 		private int sheetIndex;

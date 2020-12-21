@@ -12,7 +12,7 @@ import redis.clients.jedis.JedisShardInfo;
  * @Description <p>Redis操作类，应该先new出实例对象，然后进行操作，最后进行关闭操作</p>
  * @version <p>v1.0</p>
  * @Date <p>2018年7月4日 上午10:32:39</p> 
- * @author <p>fangyang</p>
+ * @author <p>jack</p>
  *
  */
 public class RedisDao {
